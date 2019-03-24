@@ -1,0 +1,3 @@
+tb.v
+../src/memory.v
+tb_rtl/dp_memory.v
