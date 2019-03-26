@@ -34,7 +34,7 @@ memory	#(.DATA_WIDTH(DATA_WIDTH),
 task initiate;
 begin
 	CLK<=0;
-	WE<=0;
+	WE<=1;
 	DI<= 'b0;
 	ADDR1 <= 'b0;
 	ADDR2 <= 'b0;
@@ -49,11 +49,6 @@ task write;
 	begin
 	ADDR1 <= addr;
 	DI <= data;
-	@(posedge CLK);
-	WE <= 1;
-	@(posedge CLK);
-	WE <= 0;
-	@(posedge CLK);
 	end
 endtask 
 
@@ -63,11 +58,43 @@ task read;
 	
 	begin
 	ADDR2 <= addr;
-	@(posedge CLK);
 	end
 	
 endtask
 
+reg [DATA_WIDTH-1:0] temp;
+reg [ADDR_WIDTH-1:0] write_pointer;
+reg [ADDR_WIDTH-1:0] read_pointer;
+task write_memory;
+begin
+	temp =0;
+	write_pointer=0;
+	repeat(SIZE)begin
+		@(posedge CLK);
+		write(write_pointer,temp);
+		temp <= temp+1;
+		write_pointer<= write_pointer+1;
+	end
+end
+
+endtask
+
+task read_write_memory;
+begin
+	temp =10;
+	write_pointer=0;
+	read_pointer=1;
+	repeat(SIZE)begin
+		@(posedge CLK);
+		write(write_pointer,temp);
+		read(read_pointer);
+		temp <= temp+10;
+		write_pointer<= write_pointer+1;
+		read_pointer<= read_pointer+1;
+	end
+end
+
+endtask
 //*******************
 //** SETUP DUMPFILE**
 //*******************
@@ -91,10 +118,17 @@ initial
 begin
 	$display("Initializing Simulation \n\n");
 	initiate;
-	#(`CLK_PERIOD)	;
+	@(posedge CLK);
+	//Write a value in position 10 of memory, then read it
 	write(3'd2, 32'd10);
+	@(posedge CLK);
 	read(3'd2);
-	$monitor(ADDR2);
+	@(posedge CLK);
+	//Fill memory with write instruction
+	write_memory;
+	//Read and write from memory
+	@(posedge CLK);
+	read_write_memory;
 #100;
 $finish;
 
