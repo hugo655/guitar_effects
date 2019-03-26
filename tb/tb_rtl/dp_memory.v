@@ -33,7 +33,7 @@ integer index;
 	  q_a   <= data_a;
 	end
 	else
-	  q_a   <= data_a;
+	  q_a   <= ram[addr_a];
 	
 	if(we_b)
 	begin
@@ -41,7 +41,7 @@ integer index;
 	  q_b   <= data_b;
 	end
 	else
-	  q_b   <= data_b;
+	  q_b   <= ram[addr_b];
   end 
     
 endmodule
