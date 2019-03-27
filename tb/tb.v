@@ -84,7 +84,7 @@ begin
 	temp =10;
 	write_pointer=0;
 	read_pointer=1;
-	repeat(SIZE)begin
+	repeat(2*SIZE)begin
 		@(posedge CLK);
 		write(write_pointer,temp);
 		read(read_pointer);

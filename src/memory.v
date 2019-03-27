@@ -13,7 +13,8 @@ parameter DATA_WIDTH=31;
 parameter ADDR_WIDTH=15;
 parameter SIZE=20000;
 
-output reg [DATA_WIDTH-1:0] 	DO1,DO2;
+output wire [DATA_WIDTH-1:0] 	DO1,DO2;
+//output reg [DATA_WIDTH-1:0] 	DO1,DO2;
 input	   [DATA_WIDTH-1:0] 	DI;
 input	   [ADDR_WIDTH-1:0]	ADDR1, ADDR2;
 input	   		CLK,WE;
@@ -36,11 +37,13 @@ dp_memory #(.ADDR_WIDTH(ADDR_WIDTH),
 	.q_a(RAM_DO2), //Not really used
 	.q_b(RAM_DO1));
 
-always @(posedge CLK)
-begin
-// Fix this: In their original project they have registered the output
-	DO1 <= RAM_DO1;
-	DO2 <= RAM_DO2;
-end
+assign DO1 = RAM_DO1;
+assign DO2 = RAM_DO2;
+//always @(posedge CLK)
+//begin
+//// Fix this: In their original project they have registered the output
+//	DO1 <= RAM_DO1;
+//	DO2 <= RAM_DO2;
+//end
 
 endmodule
