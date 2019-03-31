@@ -54,6 +54,7 @@ always @(posedge CLK, negedge rst)
 begin
 	if(~rst)
 		ADDR2 <= 'b1;
+	else
 	if(options == 4'b1000)
 		if(ADDR1 == max_delay-1)
 			ADDR2 <= 'b0;
@@ -63,8 +64,16 @@ begin
 		ADDR2 <= ADDR2;
 
 end
-always @(posedge CLK, options)
+always @(posedge CLK, options, negedge rst)
 begin
+	if(~rst)
+	begin
+		max_delay <= {ADDR_WIDTH{1'b1}} ;
+		y_temp <= 'b0;
+		y <= x;
+		DI <= 'b0;
+	end
+	else		
 	if(options == 4'b1000)
 	begin
 		max_delay <= {ADDR_WIDTH{1'b1}} ;

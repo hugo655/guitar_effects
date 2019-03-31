@@ -65,6 +65,7 @@ begin
 	initiate;
 	@(posedge CLK);
 	rst <= 'b1;
+	@(posedge CLK);	
 #200;
 $finish;
 
