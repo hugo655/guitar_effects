@@ -40,6 +40,8 @@ begin
 end
 endtask
 
+
+
 //*******************
 //** SETUP DUMPFILE**
 //*******************
@@ -66,6 +68,10 @@ begin
 	@(posedge CLK);
 	rst <= 'b1;
 	@(posedge CLK);	
+	repeat(SIZE*2)begin
+		@(posedge CLK);
+		x<= x+1;
+	end
 #200;
 $finish;
 

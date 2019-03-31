@@ -37,13 +37,13 @@ dp_memory #(.ADDR_WIDTH(ADDR_WIDTH),
 	.q_a(RAM_DO2), //Not really used
 	.q_b(RAM_DO1));
 
-assign DO1 = RAM_DO1;
-assign DO2 = RAM_DO2;
+//assign DO1 = RAM_DO1;
+//assign DO2 = RAM_DO2;
 //always @(posedge CLK)
-//begin
-//// Fix this: In their original project they have registered the output
-//	DO1 <= RAM_DO1;
-//	DO2 <= RAM_DO2;
-//end
+begin
+// Fix this: In their original project they have registered the output
+	DO1 <= RAM_DO1;
+	DO2 <= RAM_DO2;
+end
 
 endmodule

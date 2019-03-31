@@ -32,38 +32,38 @@ memory	#(.DATA_WIDTH(DATA_WIDTH),
 	  .SIZE(SIZE),
 	  .ADDR_WIDTH(ADDR_WIDTH))
 	ram_memory(.WE(1'b1),
-		   .ADDR1(ADDR1),
-		   .ADDR2(ADDR2),
+		   .ADDR1(ADDR2),
+		   .ADDR2(ADDR1),
 		   .DO1(),
 		   .DO2(DO2),
 		   .DI(DI),
 		   .CLK(CLK));
+//Write Channel
 always @(posedge CLK, negedge rst)
 begin
 	if(~rst)
-		ADDR1 <= 'b0;
+		ADDR1 <= 'b1;
 	else 
-	if(ADDR1 == max_delay-2)
+	if(ADDR1 == max_delay-1)
 		ADDR1 <= 'b0;
 	else
 		ADDR1 <= ADDR1 +1;
 
 end
-
+//Read Channel
 always @(posedge CLK, negedge rst)
 begin
 	if(~rst)
-		ADDR2 <= 'b1;
-	else
+		ADDR2 <= 'b0;
+	else begin
 	if(options == 4'b1000)
-		if(ADDR1 == max_delay-1)
-			ADDR2 <= 'b0;
-		else
-			ADDR2 <= ADDR1+1;
+			ADDR2 <= ADDR1 ;
 	else
 		ADDR2 <= ADDR2;
+	end
 
 end
+//Wrting and output logic
 always @(posedge CLK, options, negedge rst)
 begin
 	if(~rst)
@@ -76,10 +76,11 @@ begin
 	else		
 	if(options == 4'b1000)
 	begin
+		//y_temp is being not necessary here
 		max_delay <= {ADDR_WIDTH{1'b1}} ;
 		y_temp <= (x + (DO2>>1));
-		y <= y_temp;
-		DI <= y_temp;
+		DI <= (x + (DO2>>1));
+		y <= (x + (DO2>>1));
 	end	
 	else
 	y <= x;
