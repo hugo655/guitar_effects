@@ -8,24 +8,25 @@ parameter ADDR_WIDTH=3;
 
 
 
-reg CLK, WE; 
+reg CLK, rst; 
 
-reg [ADDR_WIDTH-1:0] ADDR1, ADDR2;
-reg [DATA_WIDTH-1:0] DI;
+reg [DATA_WIDTH-1:0] x;
+wire [DATA_WIDTH-1:0] y;
 
-wire [DATA_WIDTH-1:0] DO1, DO2; 
 
-//Channel 1 is for writting, channel 2 for reading
-memory	#(.DATA_WIDTH(DATA_WIDTH),
-	  .SIZE(SIZE),
-	  .ADDR_WIDTH(ADDR_WIDTH))
-	ram_memory(.WE(WE),
-		   .ADDR1(ADDR1),
-		   .ADDR2(ADDR2),
-		   .DO1(DO1),
-		   .DO2(DO2),
-		   .DI(DI),
-		   .CLK(CLK));
+
+delay#(
+	.DATA_WIDTH(DATA_WIDTH),
+	.SIZE(SIZE),
+	.ADDR_WIDTH(ADDR_WIDTH)
+) my_delay(
+	.x(x),
+	.y(y),
+	.CLK(CLK),
+	.options(4'b1000),
+	.en('b0),
+	.rst(rst)	
+);
 
 //***********
 //** TASKS **
@@ -33,68 +34,12 @@ memory	#(.DATA_WIDTH(DATA_WIDTH),
 
 task initiate;
 begin
+	rst<= 'b0;
 	CLK<=0;
-	WE<=1;
-	DI<= 'b0;
-	ADDR1 <= 'b0;
-	ADDR2 <= 'b0;
+	x <= 'b0;
 end
 endtask
 
-task write;
-
-	input [ADDR_WIDTH-1:0] addr;
-	input [DATA_WIDTH-1:0] data;
-	
-	begin
-	ADDR1 <= addr;
-	DI <= data;
-	end
-endtask 
-
-task read;
-	
-	input [ADDR_WIDTH-1:0] addr;
-	
-	begin
-	ADDR2 <= addr;
-	end
-	
-endtask
-
-reg [DATA_WIDTH-1:0] temp;
-reg [ADDR_WIDTH-1:0] write_pointer;
-reg [ADDR_WIDTH-1:0] read_pointer;
-task write_memory;
-begin
-	temp =0;
-	write_pointer=0;
-	repeat(SIZE)begin
-		@(posedge CLK);
-		write(write_pointer,temp);
-		temp <= temp+1;
-		write_pointer<= write_pointer+1;
-	end
-end
-
-endtask
-
-task read_write_memory;
-begin
-	temp =10;
-	write_pointer=0;
-	read_pointer=1;
-	repeat(2*SIZE)begin
-		@(posedge CLK);
-		write(write_pointer,temp);
-		read(read_pointer);
-		temp <= temp+10;
-		write_pointer<= write_pointer+1;
-		read_pointer<= read_pointer+1;
-	end
-end
-
-endtask
 //*******************
 //** SETUP DUMPFILE**
 //*******************
@@ -104,7 +49,7 @@ initial begin
 	$dumpfile("my_dumpfile.vcd");
 	$dumpvars(0,tb);
 	for(i = 0; i < SIZE; i = i + 1)
-	$dumpvars(1,ram_memory.RAM.ram[i]);
+	$dumpvars(1,my_delay.ram_memory.RAM.ram[i]);
 end
 
 
@@ -119,17 +64,8 @@ begin
 	$display("Initializing Simulation \n\n");
 	initiate;
 	@(posedge CLK);
-	//Write a value in position 10 of memory, then read it
-	write(3'd2, 32'd10);
-	@(posedge CLK);
-	read(3'd2);
-	@(posedge CLK);
-	//Fill memory with write instruction
-	write_memory;
-	//Read and write from memory
-	@(posedge CLK);
-	read_write_memory;
-#100;
+	rst <= 'b1;
+#200;
 $finish;
 
 end

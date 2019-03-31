@@ -1,74 +1,78 @@
 module delay(
 	x,
 	y,
-	clk,
-	options,
-	en	
+	rst,
+	CLK,
+	options,// It only works with 4'b1000 so far
+	en // It's not being used so far	
 );
 
-parameter	B=15;
-parameter	T=20000;
+parameter DATA_WIDTH=32;
+parameter ADDR_WIDTH=15;
+parameter SIZE=20000;
 
-input	en,clk;
-input	[31:0]	x;
+input	en,CLK,rst;
+input	[DATA_WIDTH-1:0]	x;
 input	[3:0]	options;
-output	reg	[31:0]	y;
+output	reg	[DATA_WIDTH-1:0]	y;
 
 // Signals for accessing dual-port RAM
-reg 	[31:0]	data_in,data_out1,data_out2;
-reg	[B -1:0]	i, addr1, addr2;
+reg 	[DATA_WIDTH-1:0] DI;
+wire	[DATA_WIDTH-1:0] DO2;
+reg	[ADDR_WIDTH -1:0]	i, ADDR1, ADDR2;
 wire		we;
 
 // Signals for internal counters 
-wire	[B -1:0]	max_delay;
+reg	[ADDR_WIDTH -1:0]	max_delay;
+reg 	[DATA_WIDTH:0]	y_temp;
 
 
-memory	ram(
-	.CLK(clk),
-	.WE(we),
-	.ADDR1(addr1),
-	.ADDR2(addr2),
-	.DI(data_in),
-	.DO1(data_out1),
-	.DO2(data_out2));
-
-always @(posedge clk)
+//ADDR1 for writting and ADDR2 for reading
+memory	#(.DATA_WIDTH(DATA_WIDTH),
+	  .SIZE(SIZE),
+	  .ADDR_WIDTH(ADDR_WIDTH))
+	ram_memory(.WE(1'b1),
+		   .ADDR1(ADDR1),
+		   .ADDR2(ADDR2),
+		   .DO1(),
+		   .DO2(DO2),
+		   .DI(DI),
+		   .CLK(CLK));
+always @(posedge CLK, negedge rst)
 begin
-	if(addr1 == max_delay-2)
-		addr1 <= 'b0;
+	if(~rst)
+		ADDR1 <= 'b0;
+	else 
+	if(ADDR1 == max_delay-2)
+		ADDR1 <= 'b0;
 	else
-		addr1 <= addr1 +1;
+		ADDR1 <= ADDR1 +1;
+
 end
 
-
-always @(posedge clk)
+always @(posedge CLK, negedge rst)
 begin
-	if(i == max_delay-2)
-		i <= 'b0;
-	else
-		i <= i +1;
-end
-
-always @(posedge clk, options)
-begin
-	if( options == 4'b1000)
-	begin
-	
-		if(addr1 == max_delay-2)
-			addr2 <= 'b0;
+	if(~rst)
+		ADDR2 <= 'b1;
+	if(options == 4'b1000)
+		if(ADDR1 == max_delay-1)
+			ADDR2 <= 'b0;
 		else
-			addr2 <= i +1;
-	end
-end
+			ADDR2 <= ADDR1+1;
+	else
+		ADDR2 <= ADDR2;
 
-always @(posedge clk, options)
+end
+always @(posedge CLK, options)
 begin
 	if(options == 4'b1000)
 	begin
-		max_delay <= T-1;
-		y_temp <= (x + (data_out2>>1));
+		max_delay <= {ADDR_WIDTH{1'b1}} ;
+		y_temp <= (x + (DO2>>1));
 		y <= y_temp;
-		data_in <= y_temp;
+		DI <= y_temp;
 	end	
+	else
+	y <= x;
 end
 endmodule

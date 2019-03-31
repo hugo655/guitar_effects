@@ -1,3 +1,4 @@
 tb.v
 ../src/memory.v
+../src/delay.v
 tb_rtl/dp_memory.v
