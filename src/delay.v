@@ -1,20 +1,24 @@
 module delay(
 	x,
 	y,
+	debug,
+	indicator,
 	rst,
 	CLK,
-	options,// It only works with 4'b1000 so far
+	audio_ready,// It only works with 4'b1000 so far
 	en // It's not being used so far	
 );
 
 parameter DATA_WIDTH=32;
-parameter ADDR_WIDTH=15;
-parameter SIZE=20000;
+parameter ADDR_WIDTH=14;
+parameter SIZE=5000;
 
 input	en,CLK,rst;
 input	[DATA_WIDTH-1:0]	x;
-input	[3:0]	options;
+input audio_ready;
 output	reg	[DATA_WIDTH-1:0]	y;
+output reg [1:0] debug;
+output reg		indicator;
 
 // Signals for accessing dual-port RAM
 reg 	[DATA_WIDTH-1:0] DI;
@@ -31,58 +35,79 @@ reg 	[DATA_WIDTH:0]	y_temp;
 memory	#(.DATA_WIDTH(DATA_WIDTH),
 	  .SIZE(SIZE),
 	  .ADDR_WIDTH(ADDR_WIDTH))
-	ram_memory(.WE(1'b1),
-		   .ADDR1(ADDR2),
-		   .ADDR2(ADDR1),
+	ram_memory(.WE(audio_ready),
+		   .ADDR1(ADDR1),
+		   .ADDR2(ADDR2),
 		   .DO1(),
 		   .DO2(DO2),
 		   .DI(DI),
 		   .CLK(CLK));
-//Write Channel
+//Write Channel1
 always @(posedge CLK, negedge rst)
 begin
 	if(~rst)
-		ADDR1 <= 'b1;
-	else 
-	if(ADDR1 == max_delay-1)
 		ADDR1 <= 'b0;
-	else
-		ADDR1 <= ADDR1 +1;
+	else 
+	begin
+		if(audio_ready)
+			ADDR1 <= ADDR2;
+		else
+			ADDR1 <= ADDR1;
+	end
 
 end
 //Read Channel
 always @(posedge CLK, negedge rst)
 begin
 	if(~rst)
-		ADDR2 <= 'b0;
+	begin
+		ADDR2 <= 'b1;
+		indicator <= 'b0;
+	end
 	else begin
-	if(options == 4'b1000)
-			ADDR2 <= ADDR1 ;
+	if(audio_ready)
+	begin		
+			if(ADDR2 == max_delay)
+			begin	
+				ADDR2 <= 'b0;
+				indicator <= ~indicator;
+			end
+			else
+				ADDR2 <= ADDR2 +'b1;
+	end
 	else
-		ADDR2 <= ADDR2;
+			ADDR2 <= ADDR2;			
 	end
 
 end
 //Wrting and output logic
-always @(posedge CLK, options, negedge rst)
+always @(posedge CLK, negedge rst)
 begin
 	if(~rst)
 	begin
-		max_delay <= {ADDR_WIDTH{1'b1}} ;
+		max_delay <= 'h2EA0 ;
 		y_temp <= 'b0;
-		y <= x;
+		y <= 'b0;
 		DI <= 'b0;
+		debug <= 2'b11;
 	end
-	else		
-	if(options == 4'b1000)
-	begin
-		//y_temp is being not necessary here
-		max_delay <= {ADDR_WIDTH{1'b1}} ;
-		y_temp <= (x + (DO2>>1));
-		DI <= (x + (DO2>>1));
-		y <= (x + (DO2>>1));
-	end	
-	else
-	y <= x;
+	else 
+	begin		
+		if(en)
+		begin
+			//y_temp is being not necessary here
+			y_temp <= x ;
+			debug[1:0] <= 2'b01;
+			max_delay <= 'h2EA0;
+			DI <= x;
+			y <= y_temp + DO2 ;
+		end	
+		else 
+		begin
+			DI <= 'b0;
+			debug[1:0] <= 2'b10;
+			y <= x;
+		end
+	end
 end
 endmodule
