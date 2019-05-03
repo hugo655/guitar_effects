@@ -1,0 +1,35 @@
+module average_filter(
+					data_out,
+					data_in,
+					audio_ready,
+					clk,
+					rst);
+
+output reg [31:0] data_out;
+input			[31:0] data_in;
+input	clk;
+input rst;
+
+
+always @(posedge clk, negedge rst)
+begin
+	if(~rst)
+	begin
+		flop1		<= 'b0;
+		flop2		<= 'b0;
+		flop3		<= 'b0;
+		flop4	<= 'b0;
+	end
+	else begin
+		flop1	<= data_in;
+		flop2	<= flop1;
+		flop3	<= flop2;
+		flop4	<= flop3;
+	end
+
+
+end
+
+
+
+endmodule

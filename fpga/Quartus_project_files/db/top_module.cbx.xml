@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="top_module">
+		<CBX_INST_ENTRY INSTANCE_NAME="|top_module|Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer|Altera_UP_SYNC_FIFO:Audio_In_Right_Channel_FIFO|scfifo:Sync_FIFO" CBX_FILE_NAME="scfifo_5041.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|top_module|delay:my_delay_left|memory:ram_memory|dp_memory:ram_memory|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_gvr1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|top_module|filter1:nelson|lpm_mult:Mult2" CBX_FILE_NAME="mult_m3t.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|top_module|Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer|Altera_UP_SYNC_FIFO:Audio_In_Left_Channel_FIFO|scfifo:Sync_FIFO" CBX_FILE_NAME="scfifo_5041.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|top_module|Audio_Controller:Audio_Controller|Altera_UP_Audio_Out_Serializer:Audio_Out_Serializer|Altera_UP_SYNC_FIFO:Audio_Out_Right_Channel_FIFO|scfifo:Sync_FIFO" CBX_FILE_NAME="scfifo_5041.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|top_module|filter1:nelson|lpm_mult:Mult1" CBX_FILE_NAME="mult_q3t.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|top_module|filter1:nelson|lpm_mult:Mult3" CBX_FILE_NAME="mult_g3t.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|top_module|Audio_Controller:Audio_Controller|Altera_UP_Audio_Out_Serializer:Audio_Out_Serializer|Altera_UP_SYNC_FIFO:Audio_Out_Left_Channel_FIFO|scfifo:Sync_FIFO" CBX_FILE_NAME="scfifo_5041.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|top_module|filter1:nelson|lpm_mult:Mult0" CBX_FILE_NAME="mult_j3t.tdf"/>
+	</PROJECT>
+</LOG_ROOT>
