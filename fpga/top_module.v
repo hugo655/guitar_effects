@@ -19,7 +19,15 @@ module top_module (
 	LEDR,
 	LEDG,
 	I2C_SCLK,
-	SW
+	SW,
+	HEX0,
+	HEX1,
+	HEX2,
+	HEX3,
+	HEX4,
+	HEX5,
+	HEX6,
+	HEX7
 );
 
 /*****************************************************************************
@@ -48,9 +56,10 @@ inout				I2C_SDAT;
 // Outputs
 output				AUD_XCK;
 output				AUD_DACDAT;
-output [1:0]				LEDR;
-output	[1:0]			LEDG;
+output [7:0]				LEDR;
+output	[7:0]			LEDG;
 output				I2C_SCLK;
+output	[6:0] HEX0,HEX1,HEX2,HEX3,HEX4,HEX5,HEX6,HEX7;
 
 /*****************************************************************************
  *                 Internal Wires and Registers Declarations                 *
@@ -67,6 +76,8 @@ wire		[31:0]	right_channel_audio_out;
 
 wire		[31:0]	left_channel_audio_out_filtered;
 wire		[31:0]	right_channel_audio_out_filtered;
+
+wire		[31:0]	left_channel_distortion;
 
 wire		[31:0]	left_channel_audio_out_raw;
 wire		[31:0]	right_channel_audio_out_raw;
@@ -141,7 +152,16 @@ filter1 nelson (.clock(CLOCK_50),
 //							.data_out(),
 //							.audio_ready(write_audio_out));
 
- delay  my_delay_left(	.x(left_channel_audio_out_filtered),
+distortion my_distortion(	.x(left_channel_audio_out_filtered),
+									.y(left_channel_distortion),
+									.rst(rst_sync),
+									.CLK(CLOCK_50),
+									.indicator(LEDR[1]),
+									.audio_ready(write_audio_out),
+									.en(SW[1]));
+									
+									
+ delay  my_delay_left(	.x(left_channel_distortion),
 								.y(left_channel_audio_out),
 								.rst(rst_sync),
 								.CLK(CLOCK_50),
@@ -151,6 +171,10 @@ filter1 nelson (.clock(CLOCK_50),
 								.audio_ready(write_audio_out));
  
  
+ meter_wrapper(.data_in(left_channel_audio_out),
+					.display({HEX0,HEX1,HEX2,HEX3,HEX4,HEX5,HEX6,HEX7}),
+					.clk(CLOCK_50),
+					.rst(rst_sync));
  
  
  

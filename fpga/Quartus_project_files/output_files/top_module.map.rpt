@@ -1,5 +1,5 @@
 Analysis & Synthesis report for top_module
-Sat Apr 27 15:53:07 2019
+Mon May 20 21:51:01 2019
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -29,39 +29,40 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
  21. Source assignments for Audio_Controller:Audio_Controller|Altera_UP_Audio_Out_Serializer:Audio_Out_Serializer|Altera_UP_SYNC_FIFO:Audio_Out_Left_Channel_FIFO|scfifo:Sync_FIFO|scfifo_5041:auto_generated|a_dpfifo_on31:dpfifo|altsyncram_rc81:FIFOram
  22. Source assignments for Audio_Controller:Audio_Controller|Altera_UP_Audio_Out_Serializer:Audio_Out_Serializer|Altera_UP_SYNC_FIFO:Audio_Out_Right_Channel_FIFO|scfifo:Sync_FIFO|scfifo_5041:auto_generated|a_dpfifo_on31:dpfifo|altsyncram_rc81:FIFOram
  23. Parameter Settings for User Entity Instance: filter1:nelson
- 24. Parameter Settings for User Entity Instance: delay:my_delay_left
- 25. Parameter Settings for User Entity Instance: delay:my_delay_left|memory:ram_memory
- 26. Parameter Settings for User Entity Instance: delay:my_delay_left|memory:ram_memory|dp_memory:ram_memory|altsyncram:altsyncram_component
- 27. Parameter Settings for User Entity Instance: Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer
- 28. Parameter Settings for User Entity Instance: Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer|Altera_UP_Audio_Bit_Counter:Audio_Out_Bit_Counter
- 29. Parameter Settings for User Entity Instance: Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer|Altera_UP_SYNC_FIFO:Audio_In_Left_Channel_FIFO
- 30. Parameter Settings for User Entity Instance: Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer|Altera_UP_SYNC_FIFO:Audio_In_Left_Channel_FIFO|scfifo:Sync_FIFO
- 31. Parameter Settings for User Entity Instance: Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer|Altera_UP_SYNC_FIFO:Audio_In_Right_Channel_FIFO
- 32. Parameter Settings for User Entity Instance: Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer|Altera_UP_SYNC_FIFO:Audio_In_Right_Channel_FIFO|scfifo:Sync_FIFO
- 33. Parameter Settings for User Entity Instance: Audio_Controller:Audio_Controller|Altera_UP_Audio_Out_Serializer:Audio_Out_Serializer
- 34. Parameter Settings for User Entity Instance: Audio_Controller:Audio_Controller|Altera_UP_Audio_Out_Serializer:Audio_Out_Serializer|Altera_UP_SYNC_FIFO:Audio_Out_Left_Channel_FIFO
- 35. Parameter Settings for User Entity Instance: Audio_Controller:Audio_Controller|Altera_UP_Audio_Out_Serializer:Audio_Out_Serializer|Altera_UP_SYNC_FIFO:Audio_Out_Left_Channel_FIFO|scfifo:Sync_FIFO
- 36. Parameter Settings for User Entity Instance: Audio_Controller:Audio_Controller|Altera_UP_Audio_Out_Serializer:Audio_Out_Serializer|Altera_UP_SYNC_FIFO:Audio_Out_Right_Channel_FIFO
- 37. Parameter Settings for User Entity Instance: Audio_Controller:Audio_Controller|Altera_UP_Audio_Out_Serializer:Audio_Out_Serializer|Altera_UP_SYNC_FIFO:Audio_Out_Right_Channel_FIFO|scfifo:Sync_FIFO
- 38. Parameter Settings for User Entity Instance: Audio_Controller:Audio_Controller|Audio_Clock:Audio_Clock|altpll:altpll_component
- 39. Parameter Settings for User Entity Instance: avconf:avc
- 40. Parameter Settings for Inferred Entity Instance: filter1:nelson|lpm_mult:Mult3
- 41. Parameter Settings for Inferred Entity Instance: filter1:nelson|lpm_mult:Mult2
- 42. Parameter Settings for Inferred Entity Instance: filter1:nelson|lpm_mult:Mult1
- 43. Parameter Settings for Inferred Entity Instance: filter1:nelson|lpm_mult:Mult0
- 44. altsyncram Parameter Settings by Entity Instance
- 45. scfifo Parameter Settings by Entity Instance
- 46. altpll Parameter Settings by Entity Instance
- 47. lpm_mult Parameter Settings by Entity Instance
- 48. Port Connectivity Checks: "avconf:avc|I2C_Controller:u0"
- 49. Port Connectivity Checks: "Audio_Controller:Audio_Controller|Audio_Clock:Audio_Clock"
- 50. Port Connectivity Checks: "Audio_Controller:Audio_Controller|Altera_UP_Audio_Out_Serializer:Audio_Out_Serializer"
- 51. Port Connectivity Checks: "Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer"
- 52. Port Connectivity Checks: "Audio_Controller:Audio_Controller"
- 53. Port Connectivity Checks: "delay:my_delay_left|memory:ram_memory"
- 54. Elapsed Time Per Partition
- 55. Analysis & Synthesis Messages
- 56. Analysis & Synthesis Suppressed Messages
+ 24. Parameter Settings for User Entity Instance: distortion:my_distortion
+ 25. Parameter Settings for User Entity Instance: delay:my_delay_left
+ 26. Parameter Settings for User Entity Instance: delay:my_delay_left|memory:ram_memory
+ 27. Parameter Settings for User Entity Instance: delay:my_delay_left|memory:ram_memory|dp_memory:ram_memory|altsyncram:altsyncram_component
+ 28. Parameter Settings for User Entity Instance: Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer
+ 29. Parameter Settings for User Entity Instance: Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer|Altera_UP_Audio_Bit_Counter:Audio_Out_Bit_Counter
+ 30. Parameter Settings for User Entity Instance: Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer|Altera_UP_SYNC_FIFO:Audio_In_Left_Channel_FIFO
+ 31. Parameter Settings for User Entity Instance: Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer|Altera_UP_SYNC_FIFO:Audio_In_Left_Channel_FIFO|scfifo:Sync_FIFO
+ 32. Parameter Settings for User Entity Instance: Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer|Altera_UP_SYNC_FIFO:Audio_In_Right_Channel_FIFO
+ 33. Parameter Settings for User Entity Instance: Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer|Altera_UP_SYNC_FIFO:Audio_In_Right_Channel_FIFO|scfifo:Sync_FIFO
+ 34. Parameter Settings for User Entity Instance: Audio_Controller:Audio_Controller|Altera_UP_Audio_Out_Serializer:Audio_Out_Serializer
+ 35. Parameter Settings for User Entity Instance: Audio_Controller:Audio_Controller|Altera_UP_Audio_Out_Serializer:Audio_Out_Serializer|Altera_UP_SYNC_FIFO:Audio_Out_Left_Channel_FIFO
+ 36. Parameter Settings for User Entity Instance: Audio_Controller:Audio_Controller|Altera_UP_Audio_Out_Serializer:Audio_Out_Serializer|Altera_UP_SYNC_FIFO:Audio_Out_Left_Channel_FIFO|scfifo:Sync_FIFO
+ 37. Parameter Settings for User Entity Instance: Audio_Controller:Audio_Controller|Altera_UP_Audio_Out_Serializer:Audio_Out_Serializer|Altera_UP_SYNC_FIFO:Audio_Out_Right_Channel_FIFO
+ 38. Parameter Settings for User Entity Instance: Audio_Controller:Audio_Controller|Altera_UP_Audio_Out_Serializer:Audio_Out_Serializer|Altera_UP_SYNC_FIFO:Audio_Out_Right_Channel_FIFO|scfifo:Sync_FIFO
+ 39. Parameter Settings for User Entity Instance: Audio_Controller:Audio_Controller|Audio_Clock:Audio_Clock|altpll:altpll_component
+ 40. Parameter Settings for User Entity Instance: avconf:avc
+ 41. Parameter Settings for Inferred Entity Instance: filter1:nelson|lpm_mult:Mult3
+ 42. Parameter Settings for Inferred Entity Instance: filter1:nelson|lpm_mult:Mult2
+ 43. Parameter Settings for Inferred Entity Instance: filter1:nelson|lpm_mult:Mult1
+ 44. Parameter Settings for Inferred Entity Instance: filter1:nelson|lpm_mult:Mult0
+ 45. altsyncram Parameter Settings by Entity Instance
+ 46. scfifo Parameter Settings by Entity Instance
+ 47. altpll Parameter Settings by Entity Instance
+ 48. lpm_mult Parameter Settings by Entity Instance
+ 49. Port Connectivity Checks: "avconf:avc|I2C_Controller:u0"
+ 50. Port Connectivity Checks: "Audio_Controller:Audio_Controller|Audio_Clock:Audio_Clock"
+ 51. Port Connectivity Checks: "Audio_Controller:Audio_Controller|Altera_UP_Audio_Out_Serializer:Audio_Out_Serializer"
+ 52. Port Connectivity Checks: "Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer"
+ 53. Port Connectivity Checks: "Audio_Controller:Audio_Controller"
+ 54. Port Connectivity Checks: "delay:my_delay_left|memory:ram_memory"
+ 55. Elapsed Time Per Partition
+ 56. Analysis & Synthesis Messages
+ 57. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -87,16 +88,16 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Apr 27 15:53:07 2019           ;
+; Analysis & Synthesis Status        ; Successful - Mon May 20 21:51:01 2019           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; top_module                                      ;
 ; Top-level Entity Name              ; top_module                                      ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 1,112                                           ;
-;     Total combinational functions  ; 1,018                                           ;
-;     Dedicated logic registers      ; 736                                             ;
-; Total registers                    ; 736                                             ;
-; Total pins                         ; 22                                              ;
+; Total logic elements               ; 1,311                                           ;
+;     Total combinational functions  ; 1,152                                           ;
+;     Dedicated logic registers      ; 832                                             ;
+; Total registers                    ; 832                                             ;
+; Total pins                         ; 90                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 396,288                                         ;
 ; Embedded Multiplier 9-bit elements ; 16                                              ;
@@ -220,6 +221,10 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; dp_memory.v                                                      ; yes             ; User Wizard-Generated File             ; /home/hugo/Dropbox/Universidade/TCC/guitar_effects/fpga/Quartus_project_files/dp_memory.v                             ;         ;
 ; output_files/rst_sync.v                                          ; yes             ; User Verilog HDL File                  ; /home/hugo/Dropbox/Universidade/TCC/guitar_effects/fpga/Quartus_project_files/output_files/rst_sync.v                 ;         ;
 ; output_files/filter1.sv                                          ; yes             ; User SystemVerilog HDL File            ; /home/hugo/Dropbox/Universidade/TCC/guitar_effects/fpga/Quartus_project_files/output_files/filter1.sv                 ;         ;
+; output_files/meter.v                                             ; yes             ; User Verilog HDL File                  ; /home/hugo/Dropbox/Universidade/TCC/guitar_effects/fpga/Quartus_project_files/output_files/meter.v                    ;         ;
+; hex7seg.v                                                        ; yes             ; User Verilog HDL File                  ; /home/hugo/Dropbox/Universidade/TCC/guitar_effects/fpga/Quartus_project_files/hex7seg.v                               ;         ;
+; meter_wrapper.sv                                                 ; yes             ; User SystemVerilog HDL File            ; /home/hugo/Dropbox/Universidade/TCC/guitar_effects/fpga/Quartus_project_files/meter_wrapper.sv                        ;         ;
+; ../../src/distortion.v                                           ; yes             ; User Verilog HDL File                  ; /home/hugo/Dropbox/Universidade/TCC/guitar_effects/src/distortion.v                                                   ;         ;
 ; altsyncram.tdf                                                   ; yes             ; Megafunction                           ; /home/hugo/altera/13.0sp1/quartus/libraries/megafunctions/altsyncram.tdf                                              ;         ;
 ; stratix_ram_block.inc                                            ; yes             ; Megafunction                           ; /home/hugo/altera/13.0sp1/quartus/libraries/megafunctions/stratix_ram_block.inc                                       ;         ;
 ; lpm_mux.inc                                                      ; yes             ; Megafunction                           ; /home/hugo/altera/13.0sp1/quartus/libraries/megafunctions/lpm_mux.inc                                                 ;         ;
@@ -267,32 +272,32 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+----------+
 ; Resource                                    ; Usage    ;
 +---------------------------------------------+----------+
-; Estimated Total logic elements              ; 1,112    ;
+; Estimated Total logic elements              ; 1,311    ;
 ;                                             ;          ;
-; Total combinational functions               ; 1018     ;
+; Total combinational functions               ; 1152     ;
 ; Logic element usage by number of LUT inputs ;          ;
-;     -- 4 input functions                    ; 205      ;
-;     -- 3 input functions                    ; 493      ;
-;     -- <=2 input functions                  ; 320      ;
+;     -- 4 input functions                    ; 273      ;
+;     -- 3 input functions                    ; 535      ;
+;     -- <=2 input functions                  ; 344      ;
 ;                                             ;          ;
 ; Logic elements by mode                      ;          ;
-;     -- normal mode                          ; 484      ;
-;     -- arithmetic mode                      ; 534      ;
+;     -- normal mode                          ; 587      ;
+;     -- arithmetic mode                      ; 565      ;
 ;                                             ;          ;
-; Total registers                             ; 736      ;
-;     -- Dedicated logic registers            ; 736      ;
+; Total registers                             ; 832      ;
+;     -- Dedicated logic registers            ; 832      ;
 ;     -- I/O registers                        ; 0        ;
 ;                                             ;          ;
-; I/O pins                                    ; 22       ;
+; I/O pins                                    ; 90       ;
 ; Total memory bits                           ; 396288   ;
 ; Embedded Multiplier 9-bit elements          ; 16       ;
 ; Total PLLs                                  ; 1        ;
 ;     -- PLLs                                 ; 1        ;
 ;                                             ;          ;
 ; Maximum fan-out node                        ; CLOCK_50 ;
-; Maximum fan-out                             ; 873      ;
-; Total fan-out                               ; 9572     ;
-; Average fan-out                             ; 4.82     ;
+; Maximum fan-out                             ; 969      ;
+; Total fan-out                               ; 10426    ;
+; Average fan-out                             ; 4.57     ;
 +---------------------------------------------+----------+
 
 
@@ -301,7 +306,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                                    ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                                                                         ; Library Name ;
 +---------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
-; |top_module                                                   ; 1018 (2)          ; 736 (0)      ; 396288      ; 16           ; 0       ; 8         ; 22   ; 0            ; |top_module                                                                                                                                                                                                                                 ; work         ;
+; |top_module                                                   ; 1152 (2)          ; 832 (0)      ; 396288      ; 16           ; 0       ; 8         ; 90   ; 0            ; |top_module                                                                                                                                                                                                                                 ; work         ;
 ;    |Audio_Controller:Audio_Controller|                        ; 291 (4)           ; 201 (4)      ; 12288       ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|Audio_Controller:Audio_Controller                                                                                                                                                                                               ; work         ;
 ;       |Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer| ; 124 (41)          ; 87 (36)      ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer                                                                                                                                         ; work         ;
 ;          |Altera_UP_Audio_Bit_Counter:Audio_Out_Bit_Counter|  ; 10 (10)           ; 6 (6)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer|Altera_UP_Audio_Bit_Counter:Audio_Out_Bit_Counter                                                                                       ; work         ;
@@ -349,6 +354,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;                |altsyncram_gvr1:auto_generated|               ; 35 (0)            ; 2 (2)        ; 384000      ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|delay:my_delay_left|memory:ram_memory|dp_memory:ram_memory|altsyncram:altsyncram_component|altsyncram_gvr1:auto_generated                                                                                                       ; work         ;
 ;                   |decode_3oa:decode2|                        ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|delay:my_delay_left|memory:ram_memory|dp_memory:ram_memory|altsyncram:altsyncram_component|altsyncram_gvr1:auto_generated|decode_3oa:decode2                                                                                    ; work         ;
 ;                   |mux_0kb:mux3|                              ; 32 (32)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|delay:my_delay_left|memory:ram_memory|dp_memory:ram_memory|altsyncram:altsyncram_component|altsyncram_gvr1:auto_generated|mux_0kb:mux3                                                                                          ; work         ;
+;    |distortion:my_distortion|                                 ; 46 (46)           ; 64 (64)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|distortion:my_distortion                                                                                                                                                                                                        ; work         ;
 ;    |filter1:nelson|                                           ; 408 (270)         ; 299 (299)    ; 0           ; 16           ; 0       ; 8         ; 0    ; 0            ; |top_module|filter1:nelson                                                                                                                                                                                                                  ; work         ;
 ;       |lpm_mult:Mult0|                                        ; 37 (0)            ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |top_module|filter1:nelson|lpm_mult:Mult0                                                                                                                                                                                                   ; work         ;
 ;          |mult_j3t:auto_generated|                            ; 37 (37)           ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |top_module|filter1:nelson|lpm_mult:Mult0|mult_j3t:auto_generated                                                                                                                                                                           ; work         ;
@@ -358,6 +364,16 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;          |mult_m3t:auto_generated|                            ; 34 (34)           ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |top_module|filter1:nelson|lpm_mult:Mult2|mult_m3t:auto_generated                                                                                                                                                                           ; work         ;
 ;       |lpm_mult:Mult3|                                        ; 31 (0)            ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |top_module|filter1:nelson|lpm_mult:Mult3                                                                                                                                                                                                   ; work         ;
 ;          |mult_g3t:auto_generated|                            ; 31 (31)           ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |top_module|filter1:nelson|lpm_mult:Mult3|mult_g3t:auto_generated                                                                                                                                                                           ; work         ;
+;    |meter_wrapper:comb_192|                                   ; 88 (0)            ; 32 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|meter_wrapper:comb_192                                                                                                                                                                                                          ; work         ;
+;       |hex7seg:disp0|                                         ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|meter_wrapper:comb_192|hex7seg:disp0                                                                                                                                                                                            ; work         ;
+;       |hex7seg:disp1|                                         ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|meter_wrapper:comb_192|hex7seg:disp1                                                                                                                                                                                            ; work         ;
+;       |hex7seg:disp2|                                         ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|meter_wrapper:comb_192|hex7seg:disp2                                                                                                                                                                                            ; work         ;
+;       |hex7seg:disp3|                                         ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|meter_wrapper:comb_192|hex7seg:disp3                                                                                                                                                                                            ; work         ;
+;       |hex7seg:disp4|                                         ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|meter_wrapper:comb_192|hex7seg:disp4                                                                                                                                                                                            ; work         ;
+;       |hex7seg:disp5|                                         ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|meter_wrapper:comb_192|hex7seg:disp5                                                                                                                                                                                            ; work         ;
+;       |hex7seg:disp6|                                         ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|meter_wrapper:comb_192|hex7seg:disp6                                                                                                                                                                                            ; work         ;
+;       |hex7seg:disp7|                                         ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|meter_wrapper:comb_192|hex7seg:disp7                                                                                                                                                                                            ; work         ;
+;       |meter:meter|                                           ; 32 (32)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|meter_wrapper:comb_192|meter:meter                                                                                                                                                                                              ; work         ;
 ;    |rst_sync:reset|                                           ; 0 (0)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_module|rst_sync:reset                                                                                                                                                                                                                  ; work         ;
 +---------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
@@ -461,6 +477,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer|Altera_UP_SYNC_FIFO:Audio_In_Right_Channel_FIFO|scfifo:Sync_FIFO|scfifo_5041:auto_generated|a_dpfifo_on31:dpfifo|cntr_d5b:rd_ptr_msb|safe_q[0..5] ; Lost fanout                                     ;
 ; avconf:avc|mI2C_DATA[16,17,19,23]                                                                                                                                                                                                         ; Stuck at GND due to stuck port data_in          ;
 ; avconf:avc|I2C_Controller:u0|SD[16,17,19,23]                                                                                                                                                                                              ; Stuck at GND due to stuck port data_in          ;
+; distortion:my_distortion|indicator                                                                                                                                                                                                        ; Stuck at VCC due to stuck port data_in          ;
 ; avconf:avc|mI2C_DATA[20,21]                                                                                                                                                                                                               ; Merged with avconf:avc|mI2C_DATA[18]            ;
 ; avconf:avc|I2C_Controller:u0|SD[20,21]                                                                                                                                                                                                    ; Merged with avconf:avc|I2C_Controller:u0|SD[18] ;
 ; filter1:nelson|y[0][0]                                                                                                                                                                                                                    ; Stuck at GND due to stuck port data_in          ;
@@ -479,7 +496,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; avconf:avc|mSetup_ST~9                                                                                                                                                                                                                    ; Lost fanout                                     ;
 ; avconf:avc|mSetup_ST~10                                                                                                                                                                                                                   ; Lost fanout                                     ;
 ; filter1:nelson|y[6][0]                                                                                                                                                                                                                    ; Lost fanout                                     ;
-; Total Number of Removed Registers = 64                                                                                                                                                                                                    ;                                                 ;
+; Total Number of Removed Registers = 65                                                                                                                                                                                                    ;                                                 ;
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------+
 
 
@@ -504,12 +521,12 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 736   ;
+; Total registers                              ; 832   ;
 ; Number of registers using Synchronous Clear  ; 65    ;
 ; Number of registers using Synchronous Load   ; 173   ;
-; Number of registers using Asynchronous Clear ; 168   ;
+; Number of registers using Asynchronous Clear ; 264   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 247   ;
+; Number of registers using Clock Enable       ; 311   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -519,7 +536,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------------------------------+---------+
 ; Inverted Register                          ; Fan out ;
 +--------------------------------------------+---------+
-; avconf:avc|I2C_Controller:u0|SD_COUNTER[0] ; 18      ;
+; avconf:avc|I2C_Controller:u0|SD_COUNTER[0] ; 17      ;
 ; avconf:avc|I2C_Controller:u0|SD_COUNTER[2] ; 17      ;
 ; avconf:avc|I2C_Controller:u0|SD_COUNTER[3] ; 23      ;
 ; avconf:avc|I2C_Controller:u0|SD_COUNTER[1] ; 17      ;
@@ -527,7 +544,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; avconf:avc|I2C_Controller:u0|SD_COUNTER[5] ; 11      ;
 ; delay:my_delay_left|debug[1]               ; 1       ;
 ; delay:my_delay_left|debug[0]               ; 1       ;
-; avconf:avc|I2C_Controller:u0|SCLK          ; 2       ;
+; avconf:avc|I2C_Controller:u0|SCLK          ; 3       ;
 ; delay:my_delay_left|ADDR2[0]               ; 4       ;
 ; avconf:avc|I2C_Controller:u0|END           ; 5       ;
 ; avconf:avc|I2C_Controller:u0|SDO           ; 4       ;
@@ -540,11 +557,12 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                                                           ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |top_module|delay:my_delay_left|memory:ram_memory|DO2[27]                                                                                                            ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |top_module|Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer|data_in_shift_reg[5]                                             ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |top_module|Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer|Altera_UP_Audio_Bit_Counter:Audio_Out_Bit_Counter|bit_counter[1] ;
-; 6:1                ; 31 bits   ; 124 LEs       ; 62 LEs               ; 62 LEs                 ; Yes        ; |top_module|Audio_Controller:Audio_Controller|Altera_UP_Audio_Out_Serializer:Audio_Out_Serializer|data_out_shift_reg[30]                                             ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |top_module|avconf:avc|I2C_Controller:u0|SD_COUNTER[1]                                                                                                               ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |top_module|delay:my_delay_left|memory:ram_memory|DO2[20]                                                                                                            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |top_module|Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer|data_in_shift_reg[1]                                             ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |top_module|Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer|Altera_UP_Audio_Bit_Counter:Audio_Out_Bit_Counter|bit_counter[4] ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; Yes        ; |top_module|distortion:my_distortion|y[26]                                                                                                                           ;
+; 6:1                ; 31 bits   ; 124 LEs       ; 62 LEs               ; 62 LEs                 ; Yes        ; |top_module|Audio_Controller:Audio_Controller|Altera_UP_Audio_Out_Serializer:Audio_Out_Serializer|data_out_shift_reg[2]                                              ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |top_module|avconf:avc|I2C_Controller:u0|SD_COUNTER[0]                                                                                                               ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -602,6 +620,16 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; W              ; 32    ; Signed Integer                     ;
 ; H              ; 8     ; Signed Integer                     ;
 +----------------+-------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: distortion:my_distortion ;
++----------------+-------+----------------------------------------------+
+; Parameter Name ; Value ; Type                                         ;
++----------------+-------+----------------------------------------------+
+; DATA_WIDTH     ; 32    ; Signed Integer                               ;
++----------------+-------+----------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -1618,7 +1646,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:05     ;
+; Top            ; 00:00:03     ;
 +----------------+--------------+
 
 
@@ -1628,7 +1656,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Sat Apr 27 15:52:56 2019
+    Info: Processing started: Mon May 20 21:50:54 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off guitar_effects -c top_module
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file /home/hugo/Dropbox/Universidade/TCC/guitar_effects/fpga/Audio_demo/avconf/avconf.v
@@ -1665,12 +1693,22 @@ Info (12021): Found 1 design units, including 1 entities, in source file output_
     Info (12023): Found entity 1: average_filter
 Info (12021): Found 1 design units, including 1 entities, in source file output_files/filter1.sv
     Info (12023): Found entity 1: filter1
+Info (12021): Found 1 design units, including 1 entities, in source file output_files/meter.v
+    Info (12023): Found entity 1: meter
+Info (12021): Found 1 design units, including 1 entities, in source file hex7seg.v
+    Info (12023): Found entity 1: hex7seg
+Info (12021): Found 1 design units, including 1 entities, in source file meter_wrapper.sv
+    Info (12023): Found entity 1: meter_wrapper
+Info (12021): Found 1 design units, including 1 entities, in source file /home/hugo/Dropbox/Universidade/TCC/guitar_effects/src/distortion.v
+    Info (12023): Found entity 1: distortion
+Critical Warning (10846): Verilog HDL Instantiation warning at top_module.v(177): instance has no name
 Info (12127): Elaborating entity "top_module" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at top_module.v(72): object "right_channel_audio_out_raw" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at top_module.v(105): object "sound" assigned a value but never read
-Warning (10230): Verilog HDL assignment warning at top_module.v(97): truncated value with size 32 to match size of target (19)
-Warning (10230): Verilog HDL assignment warning at top_module.v(103): truncated value with size 19 to match size of target (1)
-Warning (10034): Output port "LEDR[1]" at top_module.v(51) has no driver
+Warning (10036): Verilog HDL or VHDL warning at top_module.v(83): object "right_channel_audio_out_raw" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at top_module.v(116): object "sound" assigned a value but never read
+Warning (10230): Verilog HDL assignment warning at top_module.v(108): truncated value with size 32 to match size of target (19)
+Warning (10230): Verilog HDL assignment warning at top_module.v(114): truncated value with size 19 to match size of target (1)
+Warning (10034): Output port "LEDR[7..2]" at top_module.v(59) has no driver
+Warning (10034): Output port "LEDG[7..2]" at top_module.v(60) has no driver
 Info (12128): Elaborating entity "rst_sync" for hierarchy "rst_sync:reset"
 Info (12128): Elaborating entity "filter1" for hierarchy "filter1:nelson"
 Warning (10230): Verilog HDL assignment warning at filter1.sv(12): truncated value with size 32 to match size of target (8)
@@ -1680,6 +1718,7 @@ Warning (10230): Verilog HDL assignment warning at filter1.sv(16): truncated val
 Warning (10230): Verilog HDL assignment warning at filter1.sv(17): truncated value with size 32 to match size of target (8)
 Warning (10230): Verilog HDL assignment warning at filter1.sv(19): truncated value with size 32 to match size of target (8)
 Warning (10230): Verilog HDL assignment warning at filter1.sv(20): truncated value with size 40 to match size of target (32)
+Info (12128): Elaborating entity "distortion" for hierarchy "distortion:my_distortion"
 Info (12128): Elaborating entity "delay" for hierarchy "delay:my_delay_left"
 Warning (10230): Verilog HDL assignment warning at delay.v(76): truncated value with size 32 to match size of target (14)
 Warning (10230): Verilog HDL assignment warning at delay.v(103): truncated value with size 33 to match size of target (32)
@@ -1717,6 +1756,9 @@ Info (12128): Elaborating entity "decode_3oa" for hierarchy "delay:my_delay_left
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_0kb.tdf
     Info (12023): Found entity 1: mux_0kb
 Info (12128): Elaborating entity "mux_0kb" for hierarchy "delay:my_delay_left|memory:ram_memory|dp_memory:ram_memory|altsyncram:altsyncram_component|altsyncram_gvr1:auto_generated|mux_0kb:mux3"
+Info (12128): Elaborating entity "meter_wrapper" for hierarchy "meter_wrapper:comb_192"
+Info (12128): Elaborating entity "meter" for hierarchy "meter_wrapper:comb_192|meter:meter"
+Info (12128): Elaborating entity "hex7seg" for hierarchy "meter_wrapper:comb_192|hex7seg:disp0"
 Info (12128): Elaborating entity "Audio_Controller" for hierarchy "Audio_Controller:Audio_Controller"
 Info (12128): Elaborating entity "Altera_UP_Clock_Edge" for hierarchy "Audio_Controller:Audio_Controller|Altera_UP_Clock_Edge:Bit_Clock_Edges"
 Info (12128): Elaborating entity "Altera_UP_Audio_In_Deserializer" for hierarchy "Audio_Controller:Audio_Controller|Altera_UP_Audio_In_Deserializer:Audio_In_Deserializer"
@@ -1971,32 +2013,43 @@ Warning (13012): Latch avconf:avc|LUT_DATA[12] has unsafe behavior
 Info (13000): Registers with preset signals will power-up high
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "LEDR[1]" is stuck at GND
+    Warning (13410): Pin "LEDR[1]" is stuck at VCC
+    Warning (13410): Pin "LEDR[2]" is stuck at GND
+    Warning (13410): Pin "LEDR[3]" is stuck at GND
+    Warning (13410): Pin "LEDR[4]" is stuck at GND
+    Warning (13410): Pin "LEDR[5]" is stuck at GND
+    Warning (13410): Pin "LEDR[6]" is stuck at GND
+    Warning (13410): Pin "LEDR[7]" is stuck at GND
+    Warning (13410): Pin "LEDG[2]" is stuck at GND
+    Warning (13410): Pin "LEDG[3]" is stuck at GND
+    Warning (13410): Pin "LEDG[4]" is stuck at GND
+    Warning (13410): Pin "LEDG[5]" is stuck at GND
+    Warning (13410): Pin "LEDG[6]" is stuck at GND
+    Warning (13410): Pin "LEDG[7]" is stuck at GND
 Info (17049): 24 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file /home/hugo/Dropbox/Universidade/TCC/guitar_effects/fpga/Quartus_project_files/output_files/top_module.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 7 input pin(s) that do not drive logic
+Warning (21074): Design contains 6 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "CLOCK_27"
     Warning (15610): No output dependent on input pin "KEY[1]"
     Warning (15610): No output dependent on input pin "KEY[2]"
     Warning (15610): No output dependent on input pin "KEY[3]"
-    Warning (15610): No output dependent on input pin "SW[1]"
     Warning (15610): No output dependent on input pin "SW[2]"
     Warning (15610): No output dependent on input pin "SW[3]"
-Info (21057): Implemented 1382 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1650 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 11 input pins
-    Info (21059): Implemented 7 output pins
+    Info (21059): Implemented 75 output pins
     Info (21060): Implemented 4 bidirectional pins
-    Info (21061): Implemented 1151 logic cells
+    Info (21061): Implemented 1351 logic cells
     Info (21064): Implemented 192 RAM segments
     Info (21065): Implemented 1 PLLs
     Info (21062): Implemented 16 DSP elements
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 100 warnings
-    Info: Peak virtual memory: 691 megabytes
-    Info: Processing ended: Sat Apr 27 15:53:07 2019
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:11
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 113 warnings
+    Info: Peak virtual memory: 704 megabytes
+    Info: Processing ended: Mon May 20 21:51:01 2019
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:07
 
 
 +------------------------------------------+

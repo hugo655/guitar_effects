@@ -3,35 +3,35 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow Model Setup 'avconf:avc|mI2C_CTRL_CLK'
-Slack : -2.576
-TNS   : -94.483
+Slack : -2.613
+TNS   : -100.932
 
 Type  : Slow Model Setup 'avconf:avc|LUT_INDEX[1]'
-Slack : -0.868
-TNS   : -9.574
+Slack : -1.077
+TNS   : -11.860
 
 Type  : Slow Model Setup 'CLOCK_50'
-Slack : 2.804
+Slack : 2.808
 TNS   : 0.000
 
 Type  : Slow Model Hold 'avconf:avc|LUT_INDEX[1]'
-Slack : -2.744
-TNS   : -40.067
+Slack : -2.747
+TNS   : -39.975
 
 Type  : Slow Model Hold 'CLOCK_50'
-Slack : -2.534
-TNS   : -2.534
+Slack : -2.538
+TNS   : -2.538
 
 Type  : Slow Model Hold 'avconf:avc|mI2C_CTRL_CLK'
-Slack : -2.037
-TNS   : -19.900
+Slack : -2.258
+TNS   : -16.653
 
 Type  : Slow Model Recovery 'CLOCK_50'
-Slack : 17.235
+Slack : 16.817
 TNS   : 0.000
 
 Type  : Slow Model Removal 'CLOCK_50'
-Slack : 1.460
+Slack : 2.931
 TNS   : 0.000
 
 Type  : Slow Model Minimum Pulse Width 'avconf:avc|mI2C_CTRL_CLK'
@@ -47,35 +47,35 @@ Slack : 7.873
 TNS   : 0.000
 
 Type  : Fast Model Setup 'avconf:avc|mI2C_CTRL_CLK'
-Slack : -0.965
-TNS   : -18.469
+Slack : -1.043
+TNS   : -21.257
 
 Type  : Fast Model Setup 'avconf:avc|LUT_INDEX[1]'
-Slack : 0.134
+Slack : 0.006
 TNS   : 0.000
 
 Type  : Fast Model Setup 'CLOCK_50'
-Slack : 1.957
+Slack : 1.962
 TNS   : 0.000
 
 Type  : Fast Model Hold 'CLOCK_50'
-Slack : -1.577
-TNS   : -1.577
+Slack : -1.582
+TNS   : -1.582
 
 Type  : Fast Model Hold 'avconf:avc|LUT_INDEX[1]'
-Slack : -1.543
-TNS   : -23.125
+Slack : -1.577
+TNS   : -23.196
 
 Type  : Fast Model Hold 'avconf:avc|mI2C_CTRL_CLK'
-Slack : -1.314
-TNS   : -17.413
+Slack : -1.457
+TNS   : -17.202
 
 Type  : Fast Model Recovery 'CLOCK_50'
-Slack : 18.613
+Slack : 18.148
 TNS   : 0.000
 
 Type  : Fast Model Removal 'CLOCK_50'
-Slack : 0.778
+Slack : 1.711
 TNS   : 0.000
 
 Type  : Fast Model Minimum Pulse Width 'avconf:avc|mI2C_CTRL_CLK'
