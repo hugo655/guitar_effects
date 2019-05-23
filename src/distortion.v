@@ -4,64 +4,53 @@ module distortion(
 	audio_ready,
 	indicator,
 	rst,
-	CLK,
-	
-	en // It's not being used so far	
-);
+	CLK,	
+	en);
 
-parameter DATA_WIDTH=32;
+	parameter DATA_WIDTH=32;
 
-input	en,CLK,rst;
-input	[DATA_WIDTH-1:0]	x;
-input audio_ready;
-output	reg	[DATA_WIDTH-1:0]	y;
-output reg		indicator;
+	output reg [DATA_WIDTH-1:0]	y;
+	output reg indicator;
 
-//Local Variables
-reg [DATA_WIDTH-1:0] data_in;
+	input	en,CLK,rst;
+	input [DATA_WIDTH-1:0]	x;
+	input audio_ready;
 
 
+	//Local Variables
+	reg [DATA_WIDTH-1:0] data_in;
+	wire [DATA_WIDTH-1:0] comparador_out;
 
-// Data outout
-always @(posedge CLK, negedge  rst)
-begin
-	if(~rst)
-		y <='b0;
-	else 
+	comparador my_comparador(.data_in(data_in),
+									 .data_out(comparador_out),
+									 .threshold(32'h00C00000)); //Magic number so far ...
+
+									
+	always@(posedge CLK, negedge rst)
 	begin
-		if(en)
+		if(~rst)
 		begin
-			indicator <= 'b1;
-			if(data_in[DATA_WIDTH-1])
-			begin
-				if(data_in < -(32'h00C00000))
-					y <= -(32'h00C00000);
-				else
-					y <= data_in;
-			end
-			else
-			begin
-				if(data_in >(32'h00C00000))
-					y<= (32'h00C00000);
-				else	
-					y<= data_in;
-			end
+			data_in <= 'b0;
+			y <= 'b0;
+			indicator <= 'b0;
 		end
 		else
-			y<= data_in;
+		begin
+			if(en)
+			begin
+				if(audio_ready)
+				begin
+					data_in <= x;
+					y <= comparador_out;
+					indicator <= 'b1;
+				end
+			end	
+			else
+			begin
+				data_in <= x;
+				y <= x;
+				indicator <= 'b0;
+			end
+		end
 	end
-end
-
-// Data input
-always @(posedge CLK, negedge rst)
-begin
-	if(~rst)
-		data_in <= 'b0;
-	else begin
-		if(audio_ready)
-			data_in <= x;	
-	end
-end
-
-
 endmodule
