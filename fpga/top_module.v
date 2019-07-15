@@ -169,6 +169,10 @@ distortion my_distortion(	.x(left_channel_audio_out_filtered),
 								.indicator(LEDG[1]),
 								.debug({LEDR[0],LEDG[0]}),
 								.audio_ready(write_audio_out));
+								
+tremolo my_tremolo(	.rst(rst_sync),
+							.CLK(CLOCK_50),
+							.indicator(LEDR[3]));
  
  
  meter_wrapper(.data_in(left_channel_audio_out),
