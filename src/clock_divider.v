@@ -1,5 +1,6 @@
 module clock_divider(
 	clk_out,
+	indicator,
 	clk_in,
 	rst
 );
@@ -7,6 +8,7 @@ module clock_divider(
 	parameter DIVIDER=500000;
 	
 	output reg clk_out;
+	output reg indicator;
 	input		clk_in;
 	input		rst;
 	reg [31:0] counter;
@@ -23,6 +25,7 @@ module clock_divider(
 			begin
 				counter <= 'b0;
 				clk_out <= ~clk_out;
+				indicator <= ~indicator;
 			end
 			else
 				counter <= counter + 'b1;
