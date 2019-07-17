@@ -56,7 +56,7 @@ inout				I2C_SDAT;
 // Outputs
 output				AUD_XCK;
 output				AUD_DACDAT;
-output [7:0]				LEDR;
+output [17:0]				LEDR;
 output	[7:0]			LEDG;
 output				I2C_SCLK;
 output	[6:0] HEX0,HEX1,HEX2,HEX3,HEX4,HEX5,HEX6,HEX7;
@@ -78,6 +78,8 @@ wire		[31:0]	left_channel_audio_out_filtered;
 wire		[31:0]	right_channel_audio_out_filtered;
 
 wire		[31:0]	left_channel_distortion;
+wire		[31:0]	left_channel_tremolo;
+
 
 wire		[31:0]	left_channel_audio_out_raw;
 wire		[31:0]	right_channel_audio_out_raw;
@@ -161,7 +163,7 @@ distortion my_distortion(	.x(left_channel_audio_out_filtered),
 									.en(SW[1]));
 									
 									
- delay  my_delay_left(	.x(left_channel_distortion),
+ delay  my_delay_left(	.x(left_channel_tremolo),
 								.y(left_channel_audio_out),
 								.rst(rst_sync),
 								.CLK(CLOCK_50),
@@ -172,15 +174,24 @@ distortion my_distortion(	.x(left_channel_audio_out_filtered),
 								
 tremolo my_tremolo(	.rst(rst_sync),
 							.CLK(CLOCK_50),
-							.indicator(LEDR[3]));
+							.x(left_channel_distortion),
+							.y(left_channel_tremolo),
+							.audio_ready(write_audio_out),
+							.en(SW[2]),
+							.indicator(LEDR[2]),
+							.tri_wave(LEDR[17:15]));
  
  
- meter_wrapper(.data_in(left_channel_audio_out),
-					.display({HEX0,HEX1,HEX2,HEX3,HEX4,HEX5,HEX6,HEX7}),
-					.clk(CLOCK_50),
-					.rst(rst_sync));
+ // DEBUG SECTION
+ // The following part is only for debug purpuses
+// meter_wrapper(.data_in(left_channel_audio_out),
+//					.display({HEX0,HEX1,HEX2,HEX3,HEX4,HEX5,HEX6,HEX7}),
+//					.clk(CLOCK_50),
+//					.rst(rst_sync));
+					
+//hex7seg tri_debug (.in({1'b0,tri_wave}),.out(HEX7));
  
- 
+ //END OF DEBUG SECTION
  
 Audio_Controller Audio_Controller (
 	// Inputs
