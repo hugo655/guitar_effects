@@ -23,7 +23,7 @@ module distortion(
 
 	comparador my_comparador(.data_in(data_in),
 									 .data_out(comparador_out),
-									 .threshold(32'h02000000)); //Magic number so far ...
+									 .threshold(32'h01000000)); //Magic number so far ...
 
 									
 	always@(posedge CLK, negedge rst)
@@ -41,7 +41,7 @@ module distortion(
 				if(audio_ready)
 				begin
 					data_in <= x;
-					y <= comparador_out;
+					y <= comparador_out << 2;
 					indicator <= 'b1;
 				end
 			end	

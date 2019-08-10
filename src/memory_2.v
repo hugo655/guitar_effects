@@ -1,0 +1,42 @@
+
+module	memory_2(
+	WE, // write enable for channel b
+	ADDR1, // write/read address for channel a (read channel)
+	ADDR2, // write/read address for channel b (write channel)
+	DO1, // Ouput data from channel b (not used)
+	DO2, // Output data from channel a (read channel)
+	DI, // Input data for channel b (write channel)
+	CLK 
+);
+
+parameter DATA_WIDTH=31;
+parameter ADDR_WIDTH=14;
+parameter SIZE=20000;
+
+//output wire [DATA_WIDTH-1:0] 	DO1,DO2;
+output reg [DATA_WIDTH-1:0] 	DO1,DO2;
+input	   [DATA_WIDTH-1:0] 	DI;
+input	   [ADDR_WIDTH-1:0]	ADDR1, ADDR2;
+input	   		CLK,WE;
+
+// Registers used from RAM to output of this module
+wire [DATA_WIDTH-1:0] RAM_DO2;
+
+dp_memory_2 ram_memory_2(.clock(CLK),
+						.data(DI),
+						.rdaddress(ADDR2),
+						.wraddress(ADDR1),
+						.wren(WE),
+						.q(RAM_DO2));
+
+
+//assign DO1 = RAM_DO1;
+//assign DO2 = RAM_DO2;
+always @(posedge CLK)
+begin
+// Fix this: In their original project they have registered the output
+	DO1 <= 'b0;
+	DO2 <= RAM_DO2;
+end
+
+endmodule
