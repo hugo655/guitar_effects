@@ -143,7 +143,12 @@ assign write_audio_out					= audio_in_available & audio_out_allowed;
 //					);
 //					
 
-filter1 nelson (.clock(CLOCK_50),
+//filter1 nelson (.clock(CLOCK_50),
+//						.Xin(left_channel_audio_out_raw),
+//						.Y(left_channel_audio_out_filtered));
+						
+filter2 hugo (.clock(CLOCK_50),
+					.audio_ready(write_audio_out),
 						.Xin(left_channel_audio_out_raw),
 						.Y(left_channel_audio_out_filtered));
 						
@@ -155,7 +160,7 @@ filter1 nelson (.clock(CLOCK_50),
 //							.data_out(),
 //							.audio_ready(write_audio_out));
 
-distortion my_distortion(	.x(left_channel_audio_out_filtered),
+distortion my_distortion(	.x(left_channel_audio_out_raw),
 									.y(left_channel_distortion),
 									.rst(rst_sync),
 									.CLK(CLOCK_50),
