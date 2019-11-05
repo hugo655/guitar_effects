@@ -41,7 +41,7 @@ module distortion(
 				if(audio_ready)
 				begin
 					data_in <= x;
-					y <= comparador_out << 2;
+					y <= comparador_out << 4;
 					indicator <= 'b1;
 				end
 			end	

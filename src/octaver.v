@@ -10,7 +10,7 @@ module octaver(
 );
 
 parameter DATA_WIDTH=32;
-parameter ADDR_WIDTH=14;
+parameter ADDR_WIDTH=7;
 parameter SIZE=5000;
 
 input	en,CLK,rst;

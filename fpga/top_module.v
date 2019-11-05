@@ -79,6 +79,7 @@ wire		[31:0]	right_channel_audio_out_filtered;
 
 wire		[31:0]	left_channel_distortion;
 wire		[31:0]	left_channel_tremolo;
+wire		[31:0]	left_channel_octaver;
 
 
 wire		[31:0]	left_channel_audio_out_raw;
@@ -163,7 +164,7 @@ distortion my_distortion(	.x(left_channel_audio_out_filtered),
 									.en(SW[1]));
 									
 									
- delay  my_delay_left(	.x(left_channel_tremolo),
+ delay  my_delay(	.x(left_channel_tremolo),
 								.y(left_channel_audio_out),
 								.rst(rst_sync),
 								.CLK(CLOCK_50),
@@ -171,6 +172,15 @@ distortion my_distortion(	.x(left_channel_audio_out_filtered),
 								.indicator(LEDG[1]),
 								.debug({LEDR[0],LEDG[0]}),
 								.audio_ready(write_audio_out));
+								
+// octaver  my_octaver(	.x(left_channel_audio_out_filtered),
+//								.y(left_channel_octaver),
+//								.rst(rst_sync),
+//								.CLK(CLOCK_50),
+//								.en(SW[3]),
+//								.indicator(LEDG[4]),
+//								.debug({LEDR[3],LEDG[3]}),
+//								.audio_ready(write_audio_out));
 								
 tremolo my_tremolo(	.rst(rst_sync),
 							.CLK(CLOCK_50),

@@ -14,7 +14,7 @@ parameter ADDR_WIDTH=14;
 parameter SIZE=5000;
 
 input	en,CLK,rst;
-input	[DATA_WIDTH-1:0]	x;
+input	signed [DATA_WIDTH-1:0]	x;
 input audio_ready;
 output reg signed	[DATA_WIDTH-1:0]	y;
 output reg [1:0] debug;
@@ -22,13 +22,14 @@ output reg		indicator;
 
 // Signals for accessing dual-port RAM
 reg 	[DATA_WIDTH-1:0] DI;
-wire	[DATA_WIDTH-1:0] DO2;
-reg	[ADDR_WIDTH -1:0]	i, ADDR1, ADDR2;
+wire	signed [DATA_WIDTH-1:0] DO2;
+reg [ADDR_WIDTH -1:0]	i, ADDR1, ADDR2;
 wire		we;
 
 // Signals for internal counters 
 reg	[ADDR_WIDTH -1:0]	max_delay;
-reg 	[DATA_WIDTH-1:0]	y_temp;
+reg signed 	[DATA_WIDTH-1:0]	y_temp;
+reg signed 	[DATA_WIDTH-1:0]	x_temp;
 
 
 //ADDR1 for writting and ADDR2 for reading
@@ -95,6 +96,12 @@ begin
 	begin		
 		if(en)
 		begin
+		max_delay <= 'h2EA0;
+//		y_temp <= DO2 -1  + y_temp >>> 2  ;
+//		x_temp <= DO2;
+//		DI <= y ;
+//		y <= x + y_temp ;
+// **** OLD CODE ****		
 			//y_temp is being not necessary here
 			y_temp <= x ;
 			debug[1:0] <= 2'b01;
@@ -104,7 +111,13 @@ begin
 		end	
 		else 
 		begin
-			DI <= 'b0;
+
+//		y_temp <= x ;
+//			debug[1:0] <= 2'b01;
+//			max_delay <= 'h2EA0;
+//			DI <= y >>> 1;
+//			y <= y_temp + DO2	;
+				DI <= 'b0;
 			debug[1:0] <= 2'b10;
 			y <= x;
 		end
